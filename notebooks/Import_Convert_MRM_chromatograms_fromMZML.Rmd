@@ -1,0 +1,34 @@
+---
+title: "Read MRM chromatogram data from mzML files and save as CSV"
+output: html_notebook
+author: Bo Burla / Singapore Lipidomics Incubator
+date: February, 2021
+---
+
+# Save chromatograms extracted from mzML files as CSV files
+-   One CSV file per MRM feature
+-   Each CSV file: 1st column contains Retention Times, subsequent columns contain intensities of samples
+
+```{r message=FALSE, include=FALSE}
+source(here::here("R/mrm_mzml_tools.R"))
+
+# replace with the path where the mzml files are stored. Skip here if absolute path
+DATA_PATH <- here("data/raw/mzML/Test")
+OUTPUT_PATH <- here("output")
+
+mrm_chroms <- convert_mzml_to_csv(path_mzml = DATA_PATH, path_output = OUTPUT_PATH)
+
+```
+
+# Plot chromatograms
+
+=======
+
+# Save chromuse_mit_license("My Name")atograms extracted from mzML files as CSV files: 
+# - One CSV file per MRM feature
+# - Each CSV file: Column 1: Retention time, Following columns: intensities of samples
+
+```{r}
+plt <- mrm_chroms[211,]
+plot(plt)
+```
