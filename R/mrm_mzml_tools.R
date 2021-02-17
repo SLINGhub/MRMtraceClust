@@ -24,7 +24,6 @@ convert_mzml_to_csv <- function(path_mzml, path_output){
   
   file_names <- str_replace(string = fs::path_file(file), pattern = ".mzML","")
   feature_count <- nrow(mrm)
-  feature_count <- 3
   
   for (i in seq(feature_count)) {
     
